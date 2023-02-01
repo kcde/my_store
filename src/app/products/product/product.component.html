@@ -1,0 +1,27 @@
+<div class="max-w-[300px]">
+  <div class="border-2 border-blue-500 p-4" id="product-image">
+    <img
+      src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      alt="book image"
+    />
+  </div>
+
+  <div id="product-info" class="grid justify-center place-items-center">
+    <p class="my-2">Book</p>
+    <p class="mb-1">$9.99</p>
+    <form class="flex flex-col items-center">
+      <div
+        class="border border-gray-400 rounded-md max-w-[80px] focus-within:border-blue-500 p-1 mb-1 transition-colors"
+      >
+        <input
+          type="number"
+          value="1"
+          min="1"
+          class="w-full bg-transparent outline-none"
+        />
+      </div>
+
+      <app-button [text]="'add to cart'"></app-button>
+    </form>
+  </div>
+</div>
