@@ -24,7 +24,9 @@ export class ProductDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((param: ParamMap) => {
       this.productId = param.get('id') as unknown as number;
 
-      this.product = this.productService.getProduct(this.productId);
+      this.productService.getProducts().subscribe((data) => {
+        this.product = data.find((el) => el.id == this.productId);
+      });
     });
   }
 }
