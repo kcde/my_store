@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
-import data from '../../../assets/data.json';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  products: Product[] = data;
+  products: Product[] = [];
 
-  getProducts(): Product[] {
-    return this.products;
+  getProducts(): Observable<Product[]> {
+    const jsonURL = '../../../assets/data.json';
+
+    //!TODO Use hhtpClient to fetch the data
+    return this.http.get<Product[]>(jsonURL);
   }
 
   getProduct(id: number): Product | undefined {
