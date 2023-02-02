@@ -9,4 +9,5 @@ export class ProductComponent {
   @Input() image!: string;
   @Input() name!: string;
   @Input() price!: number;
+  @Input() id!: number;
 }

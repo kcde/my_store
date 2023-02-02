@@ -13,4 +13,10 @@ export class ProductsService {
   getProducts(): Product[] {
     return this.products;
   }
+
+  getProduct(id: number): Product | undefined {
+    const product = this.products.find((el) => el.id == id);
+
+    return product;
+  }
 }

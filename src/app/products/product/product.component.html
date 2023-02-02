@@ -1,21 +1,32 @@
 <div class="max-w-[300px]">
-  <div class="border-2 border-blue-500" id="product-image">
-    <img [src]="image" alt="book image" class="transition-transform" />
-  </div>
+  <a [routerLink]="['/products', id]">
+    <div class="border-2 border-blue-500" id="product-image">
+      <img [src]="image" alt="book image" class="transition-transform" />
+    </div>
+  </a>
 
   <div id="product-info" class="grid justify-center place-items-center">
     <p class="my-2">{{ name }}</p>
     <p class="mb-1">${{ price }}</p>
     <form class="flex flex-col items-center">
       <div
-        class="border border-gray-400 rounded-md max-w-[80px] focus-within:border-blue-500 p-1 mb-1 transition-colors"
+        class="border border-gray-400 rounded-md w-full max-w-[80px] focus-within:border-blue-500 p-1 mb-1 transition-colors"
       >
-        <input
-          type="number"
-          value="1"
-          min="1"
+        <select
+          name="amount"
+          id="count-select"
           class="w-full bg-transparent outline-none"
-        />
+        >
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+          <option value="">4</option>
+          <option value="">5</option>
+          <option value="">6</option>
+          <option value="">7</option>
+          <option value="">8</option>
+          <option value="">9</option>
+        </select>
       </div>
 
       <app-button [text]="'add to cart'"></app-button>

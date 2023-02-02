@@ -1,0 +1,62 @@
+<div class="flex pt-12 justify-center">
+  <div
+    *ngIf="product !== undefined"
+    class="flex-1 flex flex-col md:items-center md:flex-row gap-8 md:gap-16 lg:gap-20 max-w-[750px]"
+  >
+    <div class="flex-1" id="product-image">
+      <img
+        src="{{ product.url }}"
+        alt="{{ product.name }}"
+        class="rounded-xl"
+      />
+    </div>
+
+    <div id="product-info" class="flex-1 flex flex-col justify-center">
+      <p class="my-2 font-bold text-3xl capitalize">{{ product.name }}</p>
+      <p class="mb-1">${{ product.price }}</p>
+      <p class="mb-1">{{ product.description }}</p>
+      <form class="flex flex-col">
+        <div
+          class="border border-gray-400 rounded-md max-w-[80px] focus-within:border-blue-500 p-1 mb-1 transition-colors"
+        >
+          <select
+            name="amount"
+            id="count-select"
+            class="w-full bg-transparent outline-none"
+          >
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+            <option value="">5</option>
+            <option value="">6</option>
+            <option value="">7</option>
+            <option value="">8</option>
+            <option value="">9</option>
+          </select>
+        </div>
+
+        <app-button [text]="'add to cart'"></app-button>
+      </form>
+      <a
+        routerLink="/"
+        class="text-blue-500 text-sm font-semibold hover:underline inline-block mt-1"
+      >
+        Back to product list</a
+      >
+    </div>
+  </div>
+
+  <div *ngIf="product == undefined">
+    <h1 class="text-2xl font-extralight underline text-red-500">
+      PRODUCT NOT FOUND!
+    </h1>
+
+    <a
+      routerLink="/"
+      class="text-blue-500 text-xl font-light hover:underline inline-block mt-1"
+    >
+      Back to product list</a
+    >
+  </div>
+</div>
