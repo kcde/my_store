@@ -8,7 +8,10 @@
   <div id="product-info" class="grid justify-center place-items-center">
     <p class="my-2">{{ name }}</p>
     <p class="mb-1">${{ price }}</p>
-    <form class="flex flex-col items-center">
+    <form
+      class="flex flex-col items-center"
+      (submit)="addToCart({id,amount:2})"
+    >
       <div
         class="border border-gray-400 rounded-md w-full max-w-[80px] focus-within:border-blue-500 p-1 mb-1 transition-colors"
       >

@@ -3,6 +3,7 @@ import { from } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { ProductsService } from '../services/products.service';
+
 import { Product } from 'src/app/models/product.model';
 import { Observable } from 'rxjs';
 @Component({
