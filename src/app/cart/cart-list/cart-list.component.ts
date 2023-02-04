@@ -16,11 +16,9 @@ export class CartListComponent implements OnInit {
   constructor(private cartServices: CartService) {}
 
   ngOnInit(): void {
-    this.isCartEmpty = this.cart.length < 1;
-
     this.cart = this.cartServices.getCart();
     this.cartTotal = this.cart.reduce((a, b) => a + b.price * b.amount, 0);
-
+    this.isCartEmpty = this.cart.length == 0;
     this.cartServices.cartTotal$.subscribe((data) => {
       this.cartTotal = data;
     });
