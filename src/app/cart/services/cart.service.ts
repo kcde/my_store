@@ -42,12 +42,22 @@ export class CartService {
             (a, b) => a + b.price * b.amount,
             0
           );
+
+          //emit cart total
           this._cartTotalSource.next(newCartTotal);
+
+          //emit the length of cart
+          this._cartCountSource.next(
+            this.cart.reduce((a, b) => a + b.amount, 0)
+          );
         } else {
           //add new product to cart
           this.cart.push(newCartItem);
+
           //emit the length of cart
-          this._cartCountSource.next(this.cart.length);
+          this._cartCountSource.next(
+            this.cart.reduce((a, b) => a + b.amount, 0)
+          );
         }
       }
     });
@@ -65,6 +75,9 @@ export class CartService {
         0
       );
       this._cartTotalSource.next(newCartTotal);
+
+      //emit the length of cart
+      this._cartCountSource.next(this.cart.reduce((a, b) => a + b.amount, 0));
     }
   }
 }
