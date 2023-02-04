@@ -10,7 +10,7 @@
     <p class="mb-1">${{ price }}</p>
     <form
       class="flex flex-col items-center"
-      (submit)="addToCart({id,amount:2})"
+      (submit)="addToCart({id,amount:+amount})"
     >
       <div
         class="border border-gray-400 rounded-md w-full max-w-[80px] focus-within:border-blue-500 p-1 mb-1 transition-colors"
@@ -19,16 +19,17 @@
           name="amount"
           id="count-select"
           class="w-full bg-transparent outline-none"
+          [(ngModel)]="amount"
         >
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
-          <option value="">6</option>
-          <option value="">7</option>
-          <option value="">8</option>
-          <option value="">9</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
         </select>
       </div>
 

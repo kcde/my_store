@@ -14,9 +14,9 @@ export class ProductComponent {
   @Input() price!: number;
   @Input() id!: number;
 
-  addToCart(payload: CartPayload) {
-    console.log(payload);
+  amount: number = 1;
 
+  addToCart(payload: CartPayload) {
     this.cartService.addToCart(payload);
   }
 }

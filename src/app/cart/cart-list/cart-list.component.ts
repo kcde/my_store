@@ -9,10 +9,20 @@ import { CartService } from '../services/cart.service';
 })
 export class CartListComponent implements OnInit {
   cart: Cart[] = [];
+  cartTotal: Number = 0;
+
+  isCartEmpty!: boolean;
 
   constructor(private cartServices: CartService) {}
 
   ngOnInit(): void {
+    this.isCartEmpty = this.cart.length < 1;
+
     this.cart = this.cartServices.getCart();
+    this.cartTotal = this.cart.reduce((a, b) => a + b.price * b.amount, 0);
+
+    this.cartServices.cartTotal$.subscribe((data) => {
+      this.cartTotal = data;
+    });
   }
 }
