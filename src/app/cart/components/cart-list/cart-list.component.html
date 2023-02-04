@@ -1,13 +1,16 @@
 <div *ngIf="!isCartEmpty">
-  <div class="flex flex-col gap-6">
-    <app-cart-item
-      *ngFor="let product of cart"
-      [item]="product"
-    ></app-cart-item>
-  </div>
+  <div>
+    <div class="flex flex-col gap-6">
+      <app-cart-item
+        *ngFor="let product of cart"
+        [item]="product"
+      ></app-cart-item>
+    </div>
 
-  <p class="font-bold text-3xl mt-4">Total: {{ cartTotal.toFixed(2) }}</p>
+    <p class="font-bold text-3xl mt-4">Total: {{ cartTotal.toFixed(2) }}</p>
+  </div>
 </div>
+<div><app-checkout-form></app-checkout-form></div>
 
 <div *ngIf="isCartEmpty" class="flex flex-col items-center pt-8">
   <h1 class="text-2xl font-extralight underline text-red-500">CART IS EMPTY</h1>
