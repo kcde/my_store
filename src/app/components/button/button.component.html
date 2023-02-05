@@ -1,5 +1,11 @@
 <button
-  class="bg-blue-500 text-white py-2 px-3 rounded-md transition-colors active:bg-blue-700 hover:bg-blue-400"
+  class="text-white py-2 px-3 rounded-md transition-colors"
+  [disabled]="disable"
+  [ngClass]="
+    disable
+      ? 'bg-blue-200 cursor-not-allowed'
+      : 'bg-blue-500  active:bg-blue-700 hover:bg-blue-400'
+  "
 >
   {{ text }}
 </button>
