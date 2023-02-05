@@ -5,7 +5,9 @@ import { switchMap } from 'rxjs/operators';
 import { ProductsService } from '../services/products.service';
 
 import { Product } from 'src/app/models/product.model';
+import { CartPayload } from 'src/app/models/cart.model';
 import { Observable } from 'rxjs';
+import { CartService } from 'src/app/cart/services/cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -15,10 +17,12 @@ export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
 
   productId!: number;
+  amount: number = 1;
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -29,5 +33,9 @@ export class ProductDetailsComponent implements OnInit {
         this.product = data.find((el) => el.id == this.productId);
       });
     });
+  }
+
+  addToCart(payload: CartPayload) {
+    this.cartService.addToCart(payload);
   }
 }
