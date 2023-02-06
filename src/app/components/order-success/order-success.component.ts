@@ -14,14 +14,11 @@ export class OrderSuccessComponent implements OnInit {
   constructor(private router: Router, private cartService: CartService) {}
 
   ngOnInit(): void {
-    //console.log(this.router);
-
     if (!this.cartService.isCartPurchased) {
       this.router.navigate(['/']);
     }
 
     this.cartService.resetIsCartPurchased();
-
     this.orderDetails = this.cartService.getPurchaseDetails();
   }
 }
