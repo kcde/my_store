@@ -1,6 +1,10 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cart, CartPayload } from 'src/app/models/cart.model';
+import {
+  Cart,
+  CartPayload,
+  PurchasedCartDetail,
+} from 'src/app/models/cart.model';
 import { ProductsService } from 'src/app/products/services/products.service';
 import { Subject } from 'rxjs';
 
@@ -9,6 +13,9 @@ import { Subject } from 'rxjs';
 })
 export class CartService {
   cart: Cart[] = [];
+  isCartPurchased: boolean = false;
+
+  purchasedDetails!: PurchasedCartDetail;
 
   private _cartCountSource = new Subject<number>();
   cartCount$ = this._cartCountSource.asObservable();
@@ -79,5 +86,26 @@ export class CartService {
       //emit the length of cart
       this._cartCountSource.next(this.cart.reduce((a, b) => a + b.amount, 0));
     }
+  }
+
+  getIsCartPurchased(): boolean {
+    return this.isCartPurchased;
+  }
+
+  getPurchaseDetails(): PurchasedCartDetail {
+    return this.purchasedDetails;
+  }
+
+  purchaseCart(detail: PurchasedCartDetail): void {
+    this.purchasedDetails = detail;
+    this.isCartPurchased = true;
+
+    this.cart = [];
+    //emit the length of cart
+    this._cartCountSource.next(this.cart.reduce((a, b) => a + b.amount, 0));
+  }
+
+  resetIsCartPurchased(): void {
+    this.isCartPurchased = false;
   }
 }

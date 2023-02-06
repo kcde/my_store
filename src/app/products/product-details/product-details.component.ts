@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import { ProductsService } from '../services/products.service';
 
 import { Product } from 'src/app/models/product.model';
 import { CartPayload } from 'src/app/models/cart.model';
-import { Observable } from 'rxjs';
 import { CartService } from 'src/app/cart/services/cart.service';
 @Component({
   selector: 'app-product-details',

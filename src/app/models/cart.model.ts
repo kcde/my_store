@@ -8,3 +8,8 @@ export type CartPayload = {
 export type Cart = Product & {
   amount: number;
 };
+
+export type PurchasedCartDetail = {
+  amount: string;
+  name: string;
+};
