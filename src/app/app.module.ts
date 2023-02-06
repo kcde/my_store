@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { CartModule } from './cart/cart.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductsModule } from './products/products.module';
-import { RouteGuardService } from './services/route-guard.service';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -17,7 +16,7 @@ import { RouteGuardService } from './services/route-guard.service';
     ProductsModule,
     CartModule,
   ],
-  providers: [RouteGuardService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
