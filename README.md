@@ -1,6 +1,16 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+My store is a simple e-commerce web app that have all the basic functionalities of an e-commerce app :
+
+1.  Product listing
+2.  Product page
+3.  Shopping cart
+4.  Checkout form
+5.  Order confirmation page
+
+## Install dependencies
+
+Run `npm install` to install Angular and it's required dependencies
 
 ## Development server
 
@@ -14,14 +24,20 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Routes
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Home
 
-## Running end-to-end tests
+Home route ` http://localhost:4200/` displays all products
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Product details
 
-## Further help
+Products details route ` http://localhost:4200/products/{productid}` shows details of a single products
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Shopping cart
+
+Shopping cart route ` http://localhost:4200/cart` shows all items added to cart
+
+### Order confirmation
+
+order confirmation route ` http://localhost:4200/order-success` dis successful order information. And this route is only accessible only when an order is successfully made when the checkout form is field with valid details

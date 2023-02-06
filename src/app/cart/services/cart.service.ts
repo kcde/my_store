@@ -66,6 +66,12 @@ export class CartService {
             this.cart.reduce((a, b) => a + b.amount, 0)
           );
         }
+
+        window.alert(
+          `${newCartItem.amount} ${newCartItem.name}${
+            newCartItem.amount > 1 ? 's' : ''
+          } added to cart 👍`
+        );
       }
     });
   }

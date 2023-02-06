@@ -11,7 +11,7 @@ import { CartService } from '../../cart/services/cart.service';
 export class OrderSuccessComponent implements OnInit {
   orderDetails!: PurchasedCartDetail;
 
-  constructor(private router: Router, private cartService: CartService) {}
+  constructor(public router: Router, private cartService: CartService) {}
 
   ngOnInit(): void {
     if (!this.cartService.isCartPurchased) {
